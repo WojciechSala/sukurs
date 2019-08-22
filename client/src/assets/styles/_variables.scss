@@ -10,7 +10,18 @@ $medium: 500;
 $bold: 900;
 
 $font-family-sans: 'Roboto', sans-serif;
-$font-unit: 0.875rem;
+// DESKTOP
+$font-xs: 0.875rem; // 14px
+$font-s: 1rem; // 16px
+$font-m: 1.125rem; // 18px
+$font-l: 1.5rem; // 24px
+$font-xl: 3rem; // 48px
+
+// MOBILE
+$font-m-xs: 0.625rem; // 10px
+$font-m-s: 0.75em; // 12px
+$font-m-m: 0.875rem; // 14px
+$font-m-l: 1.5rem; // 24px
 
 // TIME
 $duration: 0.4s;
