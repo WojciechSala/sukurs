@@ -1,23 +1,27 @@
-@import './master.scss';
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyle = createGlobalStyle`
 
 ::-webkit-scrollbar {
   width: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: $black;
+  background: #141414;
 }
 ::-webkit-scrollbar-thumb {
-  background: $main;
+  background: #00ff80;
   border-radius: 5px;
 }
 
+html,
 body {
   height: 100vh;
-  font-family: $font-family-sans;
-  font-weight: $regular;
-  font-size: $font-m-s;
-  color: $black;
-  background-color: $white;
+  width: 100vw;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;;
+  color: #141414;
+  background-color: #ffffff;
   padding: 0 !important;
   margin: 0 !important;
   -webkit-font-smoothing: antialiased;
@@ -30,3 +34,10 @@ body {
   user-select: none;
   overflow-x: hidden;
 }
+
+html {
+  font-size: 1rem;
+}
+`;
+
+export default GlobalStyle;

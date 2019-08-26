@@ -1,12 +1,13 @@
 import React from 'react';
 import Home from './pages/Home.js';
+import MasterStyle from './assets/styles/MasterStyle';
 
 function App() {
   return (
-    <div className="App">
+    <MasterStyle>
       <Home />
       {/* routing */}
-    </div>
+    </MasterStyle>
   );
 }
 

@@ -1,10 +1,16 @@
 import React from 'react';
-import Navbar from '../components/Navbar/Navbar.js';
+import Navbar from '../components/Navbar';
+
+const homeStyle = {
+  height: '200vh'
+  // backgroundColor: 'red'
+};
 
 const Home = () => (
-  <div className="Home">
+  <div style={homeStyle}>
     <Navbar />
     <button>kliknij mnie!</button>
+    asd
   </div>
 );
 
