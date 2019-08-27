@@ -11,7 +11,7 @@ const StyledHome = styled.div`
 
 const StyledShopLink = styled.a`
   float: right;
-  margin-right: 16px;
+  margin: 50px 16px 30px 0;
 
   span {
     position: relative; /** icon is visible on menu because of relative position*/

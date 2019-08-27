@@ -9,12 +9,11 @@ const StyledProducts = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-row-gap: 50px;
+  justify-items: center; /** will depend on Product.js odd and even */
 `;
 
 const Products = () => (
   <StyledProducts>
-    <Product />
-    <Product />
     <Product />
     <Product />
     <Product />
