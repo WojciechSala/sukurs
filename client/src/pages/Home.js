@@ -1,17 +1,35 @@
 import React from 'react';
+import styled from 'styled-components';
 import Navbar from '../components/Navbar';
+import Products from '../components/Products';
+import Icon from '@material-ui/core/Icon';
 
-const homeStyle = {
-  height: '200vh'
-  // backgroundColor: 'red'
-};
+const StyledHome = styled.div`
+  height: '200vh';
+  font-size: ${({ theme }) => theme.font.size.mobile.xs};
+`;
+
+const StyledShopLink = styled.a`
+  float: right;
+  margin-right: 16px;
+
+  span {
+    position: relative; /** icon is visible on menu because of relative position*/
+    top: 8px;
+    margin-left: 10px;
+  }
+`;
 
 const Home = () => (
-  <div style={homeStyle}>
+  <StyledHome>
     <Navbar />
-    <button>kliknij mnie!</button>
-    asd
-  </div>
+    HERO
+    <Products />
+    <StyledShopLink>
+      ZOBACZ WIĘCEJ
+      <Icon>chevron_right</Icon>
+    </StyledShopLink>
+  </StyledHome>
 );
 
 export default Home;
