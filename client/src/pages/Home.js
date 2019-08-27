@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import Products from '../components/Products';
 import Icon from '@material-ui/core/Icon';
+import bgHero from '../assets/images/person_1.jpg';
+import { Link } from 'react-router-dom';
 
 const StyledHome = styled.div`
   height: '200vh';
@@ -20,14 +22,24 @@ const StyledShopLink = styled.a`
   }
 `;
 
+const StyledHero = styled.div`
+  width: 100vw;
+  height: 105vh;
+  margin-top: -59px; /**height of navbar */
+  background: url(${bgHero});
+  background-size: cover;
+`;
+
 const Home = () => (
   <StyledHome>
     <Navbar />
-    HERO
+    <StyledHero />
     <Products />
     <StyledShopLink>
-      ZOBACZ WIĘCEJ
-      <Icon>chevron_right</Icon>
+      <Link to="shop" replace>
+        ZOBACZ WIĘCEJ
+        <Icon>chevron_right</Icon>
+      </Link>
     </StyledShopLink>
   </StyledHome>
 );

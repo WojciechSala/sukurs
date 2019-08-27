@@ -1,12 +1,16 @@
 import React from 'react';
-import Home from './pages/Home.js';
 import MasterStyle from './assets/styles/MasterStyle';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Shop from './pages/Shop';
 
 function App() {
   return (
     <MasterStyle>
-      <Home />
-      {/* routing */}
+      <Router>
+        <Route path="/" exact component={Home} />
+        <Route path="/shop" component={Shop} />
+      </Router>
     </MasterStyle>
   );
 }

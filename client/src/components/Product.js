@@ -6,6 +6,7 @@ const StyledProduct = styled.div`
   width: 150px;
   height: 200px;
   max-width: calc((100vw - 36px) / 2);
+  font-size: ${({ theme }) => theme.font.size.mobile.xs};
 
   /* :nth-child(odd) {
     justify-self: start;
@@ -33,7 +34,7 @@ const StyledProductInfo = styled.div`
 
 const Product = () => (
   <StyledProduct>
-    <StyledProductImage></StyledProductImage>
+    <StyledProductImage />
     <StyledProductInfo>
       <p>WHITE STUSSY SAMPLE TEE</p>
       <p>40 ZŁ</p>

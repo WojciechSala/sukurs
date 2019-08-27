@@ -33,6 +33,11 @@ body {
   -ms-user-select: none;
   user-select: none;
   overflow-x: hidden;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 }
 
 html {

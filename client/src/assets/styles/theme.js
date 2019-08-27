@@ -33,5 +33,9 @@ export const theme = {
         xl: '3rem' // 48px
       }
     }
-  }
+  },
+
+  shadow: `-webkit-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+          -moz-box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0.25);`
 };

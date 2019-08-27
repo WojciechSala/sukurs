@@ -5,6 +5,7 @@ import Product from './Product.js';
 const StyledProducts = styled.div`
   width: calc(100vw - 32px);
   padding: 0 16px;
+  margin: 40px 0;
 
   display: grid;
   grid-template-columns: repeat(2, 1fr);
