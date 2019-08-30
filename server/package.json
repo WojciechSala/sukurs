@@ -17,5 +17,7 @@
     "mongoose": "^5.6.11",
     "nodemon": "^1.19.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "keystone": "^4.2.1"
+  }
 }
