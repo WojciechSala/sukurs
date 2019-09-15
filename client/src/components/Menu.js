@@ -26,7 +26,7 @@ const StyledMenu = styled.div`
 
   a {
     padding-top: 10px;
-    margin-right: 40vw;
+    margin-right: 30vw;
   }
 `;
 

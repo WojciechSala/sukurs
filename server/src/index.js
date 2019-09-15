@@ -5,8 +5,7 @@ import keys from './config/keys';
 
 const app = express();
 
-app.get('/', (req, res) => res.send('asd'));
-app.listen(process.env.PORT || 8081);
+app.listen(process.env.PORT || 3000);
 
 app.use('/products', products());
 
@@ -16,7 +15,8 @@ keystone.init({
   'user model': 'User',
   'auto update': true,
   auth: true,
-  'cloudinary config': 'cloudinary://api_key:api_secret@cloud_name'
+  'cloudinary config': 'cloudinary://api_key:api_secret@cloud_name',
+  // 'session store': 'mongo'
 });
 
 keystone.import('models');

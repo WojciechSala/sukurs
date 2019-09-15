@@ -1,22 +1,33 @@
 import keystone from 'keystone';
 
 const Product = new keystone.List('Product', {
-  map: { name: 'title' },
+  // map: { name: 'title' },
   singular: 'Product',
   plural: 'Products',
-  autokey: { path: 'slug', from: 'title', unique: true }
+  autokey: { path: 'slug', from: 'name', unique: true }
+});
+
+const storage =  new keystone.Storage({
+  adapter: keystone.Storage.Adapters.FS,
+  fs: {
+    path: 'uploads/products',
+    publicPath: '/public/uploads/',
+  }
 });
 
 Product.add({
-  image: {
-    type: keystone.Field.Types.CloudinaryImage,
+  name: {
+    type: String,
     required: true,
     initial: true
   },
 
-  title: {
-    type: String,
-    required: true
+  image: {
+    type: keystone.Field.Types.File,
+    required: true,
+    initial: true,
+    unique: true,
+    storage: storage
   },
 
   date: {
@@ -26,7 +37,7 @@ Product.add({
   },
 
   price: {
-    type: String,
+    type: Number,
     required: true,
     initial: true
   },
@@ -38,7 +49,9 @@ Product.add({
   },
 
   description: {
-    type: String
+    type: String,
+    required: true,
+    initial: true
   },
 
   colaborator: {
@@ -54,15 +67,21 @@ Product.add({
   },
 
   color: {
-    type: String
+    type: String,
+    required: true,
+    initial: true
   },
 
   material: {
-    type: String
+    type: String,
+    required: true,
+    initial: true
   },
 
   sizeTable: {
-    type: String
+    type: String,
+    required: true,
+    initial: true
   }
 });
 
