@@ -36,12 +36,13 @@ app.use(function(req, res, next) {
 });
 //END
 
-app.listen(process.env.PORT || 3000);
+app.listen(process.env.PORT || 8081);
 app.use('/products', products());
 
 keystone.init({
   'cookie secret': keys.cookie.secret,
   name: 'sukurs',
+  port: 8081,
   'user model': 'User',
   'auto update': true,
   auth: true

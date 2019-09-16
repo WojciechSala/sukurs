@@ -36,7 +36,7 @@ const StyledProductInfo = styled.div`
 class Product extends React.Component {
   componentDidMount() {
     let Api = axios.create({
-      baseURL: `http://localhost:3000`,
+      baseURL: `http://localhost:8081`,
       withCredentials: true,
       headers: {
         Accept: 'application/json',
@@ -44,7 +44,7 @@ class Product extends React.Component {
       }
     });
 
-    Api.get(`http://localhost:3000/products`)
+    Api.get(`http://localhost:8081/products`)
       .then(res => console.log(res))
       .catch(err => console.log(err));
   }

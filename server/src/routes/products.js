@@ -1,6 +1,6 @@
 import { Router } from 'express';
-// import { returnProducts } from '../actions/product';
 import keystone from 'keystone';
+// import { returnProducts } from '../actions/product';
 
 export default () => {
   const api = Router();
@@ -15,9 +15,7 @@ export default () => {
     keystone
       .list('Product')
       .model.find()
-      .exec((err, products) => {
-        res.json(products);
-      });
+      .exec((err, products) => res.json(products));
   });
 
   return api;
