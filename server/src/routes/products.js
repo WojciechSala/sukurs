@@ -1,5 +1,6 @@
 import { Router } from 'express';
-import { returnProducts } from '../actions/product';
+// import { returnProducts } from '../actions/product';
+import keystone from 'keystone';
 
 export default () => {
   const api = Router();
@@ -9,7 +10,14 @@ export default () => {
     res.append('Access-Control-Allow-Credentials', 'true');
     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.append('Access-Control-Allow-Headers', 'Content-Type');
-    res.json(returnProducts());
+    // res.json(returnProducts());
+
+    keystone
+      .list('Product')
+      .model.find()
+      .exec((err, products) => {
+        res.json(products);
+      });
   });
 
   return api;

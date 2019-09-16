@@ -1,12 +1,42 @@
 import express from 'express';
+import { Router } from 'express';
 import keystone from 'keystone';
 import products from './routes/products';
 import keys from './config/keys';
 
 const app = express();
 
-app.listen(process.env.PORT || 3000);
+//IGNORE FAVICON START
+const api = Router();
+//1
+api.get('/favicon.ico', (req, res) => {
+  res.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.append('Access-Control-Allow-Credentials', 'true');
+  res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+  res.append('Access-Control-Allow-Headers', 'Content-Type');
+  res.sendStatus(204);
+});
 
+//2
+function ignoreFavicon(req, res, next) {
+  if (req.originalUrl === '/favicon.ico') {
+    res.status(204).json({ nope: true });
+  } else {
+    next();
+  }
+}
+app.use(ignoreFavicon);
+
+//3
+app.use(function(req, res, next) {
+  if (req.originalUrl && req.originalUrl.split('/').pop() === 'favicon.ico') {
+    return res.sendStatus(204);
+  }
+  return next();
+});
+//END
+
+app.listen(process.env.PORT || 3000);
 app.use('/products', products());
 
 keystone.init({
@@ -14,8 +44,8 @@ keystone.init({
   name: 'sukurs',
   'user model': 'User',
   'auto update': true,
-  auth: true,
-  'cloudinary config': 'cloudinary://api_key:api_secret@cloud_name',
+  auth: true
+  // 'cloudinary config': 'cloudinary://api_key:api_secret@cloud_name',
   // 'session store': 'mongo'
 });
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import img from '../assets/images/product_1.jpg';
+import axios from 'axios';
 
 const StyledProduct = styled.div`
   width: 150px;
@@ -32,14 +33,36 @@ const StyledProductInfo = styled.div`
   }
 `;
 
-const Product = () => (
-  <StyledProduct>
-    <StyledProductImage />
-    <StyledProductInfo>
-      <p>WHITE STUSSY SAMPLE TEE</p>
-      <p>40 ZŁ</p>
-    </StyledProductInfo>
-  </StyledProduct>
-);
+class Product extends React.Component {
+  componentDidMount() {
+    let Api = axios.create({
+      baseURL: `http://localhost:3000`,
+      withCredentials: true,
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+
+    Api.get(`http://localhost:3000/products`)
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    return (
+      <StyledProduct>
+        <StyledProductImage />
+        <StyledProductInfo>
+          <p>WHITE STUSSY SAMPLE TEE</p>
+          <p>40 ZŁ</p>
+        </StyledProductInfo>
+      </StyledProduct>
+    );
+  }
+}
+
+// const Product = () => (
+// );
 
 export default Product;
