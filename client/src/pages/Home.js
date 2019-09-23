@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
-import Products from '../components/Products';
+import Products from '../components/Products/Products';
 import Icon from '@material-ui/core/Icon';
 import bgHero from '../assets/images/person_1.jpg';
 import { Link } from 'react-router-dom';

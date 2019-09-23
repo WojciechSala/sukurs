@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
-import Products from '../components/Products';
+import Products from '../components/Products/Products';
 
 const StyledShop = styled.div``;
 
