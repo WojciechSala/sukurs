@@ -35,7 +35,7 @@ class Product extends Component {
     super(props);
 
     this.state = {
-      images: ''
+      imageToRender: ''
     };
   }
 
@@ -46,14 +46,14 @@ class Product extends Component {
 
     await this.setState({
       // path to imported module HAS TO BE .default
-      images: importedImageModule.default
+      imageToRender: importedImageModule.default
     });
   }
 
   render() {
     return (
       <StyledProduct>
-        <StyledProductImage src={this.state.images} />
+        <StyledProductImage src={this.state.imageToRender} />
         <StyledProductInfo>
           <p>{this.props.name}</p>
           <p>{this.props.price} ZŁ</p>
