@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import Menu from './Menu';
+import Hamburger from './NavbarHamburger';
 import Icon from '@material-ui/core/Icon';
 
 const StyledNavbar = styled.div`
@@ -17,17 +17,19 @@ const StyledNavbar = styled.div`
 `;
 
 const Navbar = () => {
-  const [isMenuOpen, setMenuState] = useState(false);
+  const [isHamburgerOpen, setHamburgerState] = useState(false);
 
-  const toggleMenu = () => {
-    setMenuState(!isMenuOpen);
+  const toggleHamburger = () => {
+    setHamburgerState(!isHamburgerOpen);
   };
 
   return (
     <StyledNavbar>
-      <Icon onClick={toggleMenu}>{isMenuOpen ? 'arrow_back' : 'menu'}</Icon>
+      <Icon onClick={toggleHamburger}>
+        {isHamburgerOpen ? 'arrow_back' : 'menu'}
+      </Icon>
       <Icon id="basketIcon">shopping_cart</Icon>
-      <Menu isOpen={isMenuOpen} />
+      <Hamburger isOpen={isHamburgerOpen} />
     </StyledNavbar>
   );
 };

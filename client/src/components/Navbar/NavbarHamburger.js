@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const StyledMenu = styled.div`
+const StyledHamburger = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -39,15 +39,15 @@ const menuLinks = [
   { text: '© 2019 SUKURS', href: '' }
 ];
 
-const Menu = ({ isOpen }) => (
-  <StyledMenu isOpen={isOpen}>
+const Hamburger = ({ isOpen }) => (
+  <StyledHamburger isOpen={isOpen}>
     {menuLinks.map(item => (
       // eslint-disable-next-line
       <Link to={item.href} replace key="item">
         {item.text}
       </Link>
     ))}
-  </StyledMenu>
+  </StyledHamburger>
 );
 
-export default Menu;
+export default Hamburger;

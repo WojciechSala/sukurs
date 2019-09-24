@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Product from '../Product';
+import Product from '../Product/Product';
 import { fetchProducts } from './ProductsActions';
 import { connect } from 'react-redux';
 
@@ -42,6 +42,7 @@ class Products extends Component {
         {products.map(product => (
           <Product
             key={product._id}
+            slug={product.slug}
             name={product.name}
             price={product.price}
             image={product.image.filename}

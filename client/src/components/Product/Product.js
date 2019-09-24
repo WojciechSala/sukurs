@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledProduct = styled.div`
   width: 150px;
@@ -41,7 +42,7 @@ class Product extends Component {
 
   async componentDidMount() {
     const importedImageModule = await import(
-      '../../../server/uploads/products/' + this.props.image
+      '../../../../server/uploads/products/' + this.props.image
     );
 
     await this.setState({
@@ -52,13 +53,15 @@ class Product extends Component {
 
   render() {
     return (
-      <StyledProduct>
-        <StyledProductImage src={this.state.imageToRender} />
-        <StyledProductInfo>
-          <p>{this.props.name}</p>
-          <p>{this.props.price} ZŁ</p>
-        </StyledProductInfo>
-      </StyledProduct>
+      <Link to={this.props.slug} replace>
+        <StyledProduct>
+          <StyledProductImage src={this.state.imageToRender} />
+          <StyledProductInfo>
+            <p>{this.props.name}</p>
+            <p>{this.props.price} ZŁ</p>
+          </StyledProductInfo>
+        </StyledProduct>
+      </Link>
     );
   }
 }
