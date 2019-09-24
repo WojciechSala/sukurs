@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
-import img from '../assets/images/product_1.jpg';
 
 const StyledProduct = styled.div`
   width: 150px;
@@ -16,10 +15,9 @@ const StyledProduct = styled.div`
   } */
 `;
 
-const StyledProductImage = styled.div`
+const StyledProductImage = styled.img`
   width: 100%;
   height: 160px;
-  background: url(${img});
   background-size: cover;
 `;
 
@@ -32,14 +30,36 @@ const StyledProductInfo = styled.div`
   }
 `;
 
-const Product = () => (
-  <StyledProduct>
-    <StyledProductImage />
-    <StyledProductInfo>
-      <p>WHITE STUSSY SAMPLE TEE</p>
-      <p>40 ZŁ</p>
-    </StyledProductInfo>
-  </StyledProduct>
-);
+class Product extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      images: ''
+    };
+  }
+
+  async componentDidMount() {
+    const importedImageModule = await import(
+      '../../../server/uploads/products/' + this.props.image
+    );
+
+    await this.setState({
+      // path to imported module HAS TO BE .default
+      images: importedImageModule.default
+    });
+  }
+
+  render() {
+    return (
+      <StyledProduct>
+        <StyledProductImage src={this.state.images} />
+        <StyledProductInfo>
+          <p>{this.props.name}</p>
+          <p>{this.props.price} ZŁ</p>
+        </StyledProductInfo>
+      </StyledProduct>
+    );
+  }
+}
 export default Product;

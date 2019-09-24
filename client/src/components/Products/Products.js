@@ -39,19 +39,14 @@ class Products extends Component {
 
     return (
       <StyledProducts>
-        <ul>
-          {products.map(product => (
-            <li key={product._id}>{product.name}</li>
-          ))}
-        </ul>
-
-        {/* <span>{product}</span> */}
-        {/* <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product />
-        <Product /> */}
+        {products.map(product => (
+          <Product
+            key={product._id}
+            name={product.name}
+            price={product.price}
+            image={product.image.filename}
+          />
+        ))}
       </StyledProducts>
     );
   }
