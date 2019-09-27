@@ -30,6 +30,10 @@ Product.add({
     storage: storage
   },
 
+  img1: {type: keystone.Field.Types.File, unique: true, storage: storage},
+  img2: {type: keystone.Field.Types.File, unique: true, storage: storage},
+  img3: {type: keystone.Field.Types.File, unique: true, storage: storage},
+
   date: {
     type: Date,
     required: true,

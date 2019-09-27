@@ -18,5 +18,18 @@ export default () => {
       .exec((err, products) => res.status(200).json(products));
   });
 
+  api.get('/:slug', (req, res) => {
+    res.append('Access-Control-Allow-Origin', 'http://localhost:8080');
+    res.append('Access-Control-Allow-Credentials', 'true');
+    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.append('Access-Control-Allow-Headers', 'Content-Type');
+
+    // find product on given slug and return it as a json object
+    keystone
+      .list('Product')
+      .model.find()
+      .exec((err, products) => res.status(200).json(products));
+  });
+
   return api;
 };

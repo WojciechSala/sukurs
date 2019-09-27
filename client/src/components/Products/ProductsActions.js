@@ -2,32 +2,6 @@ export const FETCH_PRODUCTS_BEGIN = 'FETCH_PRODUCTS_BEGIN';
 export const FETCH_PRODUCTS_SUCCESS = 'FETCH_PRODUCTS_SUCCESS';
 export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
 
-// import axios from 'axios';
-// export function fetchProducts() {
-//   let Api = axios.create({
-//     baseURL: `http://localhost:8081`,
-//     withCredentials: true,
-//     headers: {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json'
-//     }
-//   });
-
-//   return dispatch => {
-//     dispatch(fetchProductsBegin());
-//     return Api.get(`/products`)
-//       .then(res => {
-//         dispatch(fetchProductsSuccess(res.data));
-//         // console.log(res.data);
-//         return res.data;
-//       })
-//       .catch(error => {
-//         dispatch(fetchProductsFailure(error));
-//         // handleErrors(error);
-//       });
-//   };
-// }
-
 export function fetchProducts() {
   return dispatch => {
     dispatch(fetchProductsBegin());
