@@ -3,22 +3,32 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Navbar from '../Navbar/Navbar';
 import { fetchProduct } from './ProductDetailsActions';
+import ImageSldier from './ProductDetailsImageSlider';
+import ProductForm from './ProductDetailsForm';
 
 const StyledProductDetails = styled.div`
-  width: 150px;
-  height: 200px;
-  max-width: calc((100vw - 36px) / 2);
+  width: 100vw;
+  height: 100vh;
   font-size: ${({ theme }) => theme.font.size.mobile.xs};
+`;
+
+const StyledProductDescription = styled.div`
+  h1 {
+  }
+
+  p {
+  }
 `;
 
 class ProductDetails extends Component {
   componentDidMount() {
-    this.props.dispatch(fetchProduct());
+    this.props.dispatch(fetchProduct(this.props.match.params.slug));
   }
 
   render() {
     const { error, loading, product } = this.props;
 
+    // console.log(product.image.filename); .filename results in product.image undefined
     if (error)
       return (
         <StyledProductDetails>
@@ -36,22 +46,36 @@ class ProductDetails extends Component {
     return (
       <StyledProductDetails>
         <Navbar />
-        {product.map(item => (
-          <p></p>
-          // key={product._id}
-          // slug={product.slug}
-          // name={product.name}
-          // price={product.price}
-          // image={product.image.filename}
-          // />
-        ))}
+        <ImageSldier
+          images={[product.image, product.img1, product.img2, product.img3]}
+        />
+
+        <ProductForm
+          name={product.name}
+          price={product.price}
+          sizes={product.sizes}
+        />
+
+        <StyledProductDescription>
+          <h1>KILKA SŁÓW</h1>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id
+            imperdiet lectus, venenatis iaculis diam. Nunc egestas mi vitae mi
+            luctus bibendum. Vivamus consequat magna at ligula interdum, ac
+            viverra lectus luctus. Integer lobortis id urna quis auctor.
+            Maecenas pellentesque auctor risus vitae egestas. In ac suscipit
+            odio. Pellentesque habitant morbi tristique senectus et netus et
+            malesuada fames ac turpis egestas. Nulla quis enim vehicula,
+            pulvinar elit nec, interdum ante. Donec sollicitudin blandit cursus.
+          </p>
+        </StyledProductDescription>
       </StyledProductDetails>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  product: state.productDetailsReducer.items,
+  product: state.productDetailsReducer.item,
   loading: state.productDetailsReducer.loading,
   error: state.productDetailsReducer.error
 });

@@ -2,15 +2,15 @@ export const FETCH_PRODUCT_BEGIN = 'FETCH_PRODUCT_BEGIN';
 export const FETCH_PRODUCT_SUCCESS = 'FETCH_PRODUCT_SUCCESS';
 export const FETCH_PRODUCT_FAILURE = 'FETCH_PRODUCT_FAILURE';
 
-export function fetchProduct() {
+export function fetchProduct(slug) {
   return dispatch => {
     dispatch(fetchProductBegin());
-    return fetch('http://localhost:8081/products/:slug')
+    return fetch('http://localhost:8081/products/' + slug)
       .then(handleErrors)
       .then(res => res.json())
       .then(json => {
         dispatch(fetchProductSuccess(json));
-        console.log(json);
+        // console.log(json);
         return json;
       })
       .catch(error => dispatch(fetchProductFailure(error)));

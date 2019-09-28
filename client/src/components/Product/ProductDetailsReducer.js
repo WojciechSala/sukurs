@@ -5,7 +5,7 @@ import {
 } from './ProductDetailsActions';
 
 const initialState = {
-  items: [],
+  item: {},
   loading: false,
   error: null
 };
@@ -23,7 +23,7 @@ export const productDetailsReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        items: action.payload.product
+        item: action.payload.product
       };
 
     case FETCH_PRODUCT_FAILURE:
@@ -31,7 +31,7 @@ export const productDetailsReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         error: action.payload.error,
-        items: []
+        item: {}
       };
 
     default:

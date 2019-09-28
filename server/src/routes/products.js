@@ -27,8 +27,8 @@ export default () => {
     // find product on given slug and return it as a json object
     keystone
       .list('Product')
-      .model.find()
-      .exec((err, products) => res.status(200).json(products));
+      .model.findOne({ slug: req.params.slug })
+      .exec((err, product) => res.status(200).json(product));
   });
 
   return api;
