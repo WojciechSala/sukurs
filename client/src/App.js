@@ -10,8 +10,8 @@ function App() {
     <MasterStyle>
       <Router>
         <Route path="/" exact component={Home} />
-        <Route path="/shop" component={Shop} />
-        <Route path="/:slug" component={ProductDetails} />
+        <Route path="/products/:slug" component={ProductDetails} />
+        <Route path="/shop" exact component={Shop} />
       </Router>
     </MasterStyle>
   );

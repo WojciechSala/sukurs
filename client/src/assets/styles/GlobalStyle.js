@@ -18,8 +18,8 @@ body {
   height: 100vh;
   width: 100vw;
   font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 0.75rem;;
+  font-weight: 500;
+  font-size: 0.75rem;
   color: #141414;
   background-color: #ffffff;
   padding: 0 !important;

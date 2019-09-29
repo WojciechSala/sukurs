@@ -9,14 +9,16 @@ import ProductForm from './ProductDetailsForm';
 const StyledProductDetails = styled.div`
   width: 100vw;
   height: 100vh;
-  font-size: ${({ theme }) => theme.font.size.mobile.xs};
+  font-size: ${({ theme }) => theme.font.size.mobile.s};
 `;
 
 const StyledProductDescription = styled.div`
-  h1 {
-  }
+  width: 245px;
+  margin: 50px auto;
 
   p {
+    font-weight: ${({ theme }) => theme.font.weight.light};
+    line-height: 18px;
   }
 `;
 
@@ -28,7 +30,6 @@ class ProductDetails extends Component {
   render() {
     const { error, loading, product } = this.props;
 
-    // console.log(product.image.filename); .filename results in product.image undefined
     if (error)
       return (
         <StyledProductDetails>
@@ -55,7 +56,6 @@ class ProductDetails extends Component {
           price={product.price}
           sizes={product.sizes}
         />
-
         <StyledProductDescription>
           <h1>KILKA SŁÓW</h1>
           <p>

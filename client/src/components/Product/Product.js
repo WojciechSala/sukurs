@@ -53,7 +53,7 @@ class Product extends Component {
 
   render() {
     return (
-      <Link to={this.props.slug} replace>
+      <Link to={'/products/' + this.props.slug}>
         <StyledProduct>
           <StyledProductImage src={this.state.imageToRender} />
           <StyledProductInfo>
