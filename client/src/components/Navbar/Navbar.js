@@ -23,6 +23,7 @@ const Navbar = () => {
     setHamburgerState(!isHamburgerOpen);
   };
 
+  console.log(location.search);
   return (
     <StyledNavbar>
       <Icon onClick={toggleHamburger}>

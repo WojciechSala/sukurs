@@ -32,7 +32,7 @@ const StyledHamburger = styled.div`
 
 const menuLinks = [
   { text: 'SKLEP', href: 'shop' },
-  { text: 'KOLABORACJE', href: 'colabs' },
+  { text: 'KOLABORACJE', href: 'collabs' },
   { text: 'O NAS', href: 'about' },
   { text: 'KONTAKT', href: 'contact' },
   { text: 'OBSŁUGA KLIENTA', href: 'support' },
