@@ -29,17 +29,17 @@ export const FETCH_PRODUCTS_FAILURE = 'FETCH_PRODUCTS_FAILURE';
 // }
 
 export function fetchProducts() {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(fetchProductsBegin());
     return fetch('http://localhost:8081/products')
       .then(handleErrors)
-      .then(res => res.json())
-      .then(json => {
+      .then((res) => res.json())
+      .then((json) => {
         dispatch(fetchProductsSuccess(json));
         console.log(json);
         return json;
       })
-      .catch(error => dispatch(fetchProductsFailure(error)));
+      .catch((error) => dispatch(fetchProductsFailure(error)));
   };
 }
 
@@ -49,15 +49,15 @@ function handleErrors(response) {
 }
 
 export const fetchProductsBegin = () => ({
-  type: FETCH_PRODUCTS_BEGIN
+  type: FETCH_PRODUCTS_BEGIN,
 });
 
-export const fetchProductsSuccess = products => ({
+export const fetchProductsSuccess = (products) => ({
   type: FETCH_PRODUCTS_SUCCESS,
-  payload: { products }
+  payload: { products },
 });
 
-export const fetchProductsFailure = error => ({
+export const fetchProductsFailure = (error) => ({
   type: FETCH_PRODUCTS_FAILURE,
-  payload: { error }
+  payload: { error },
 });
