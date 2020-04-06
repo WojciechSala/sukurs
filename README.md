@@ -4,6 +4,10 @@ Sukurs is a **currently abandoned** SPA online clothing shop. If you're interest
 
 ###### The project is an idea of few people and is currently frozen, maybe revived in the future. No contribution expectations from outside.
 
+#### Stack
+
+MERN stack is being used for building this project along with redux handling the products, basket etc. operations.
+
 ---
 
 ## Installation
@@ -14,10 +18,10 @@ Sukurs is a **currently abandoned** SPA online clothing shop. If you're interest
 2. Install all libraries in package.json directories (both client and server) `npm install`
 3. Run the client and backend server by `npm start`
    NOTE:
+
    - You will need MongoDB.
    - You will need nodemon installed to run backend or just `node start.js`
 
 4. Make sure the mongo and mongod is running.
 
 ###### Expect unfinished code bugs and lots of commented code.
-
